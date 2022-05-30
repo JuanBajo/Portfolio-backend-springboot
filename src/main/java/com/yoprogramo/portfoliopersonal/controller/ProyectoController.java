@@ -1,0 +1,44 @@
+package com.yoprogramo.portfoliopersonal.controller;
+
+import com.yoprogramo.portfoliopersonal.model.Proyecto;
+import com.yoprogramo.portfoliopersonal.services.iProyectoService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+@RestController
+public class ProyectoController {
+    
+    
+    @Autowired
+    public iProyectoService proServ;
+    
+    @PostMapping("/crear/proyecto")
+    public void newProyecto(@RequestBody Proyecto p){
+        proServ.newProyecto(p);
+        
+
+    }
+    
+    
+    @GetMapping("/ver_proyectos")
+    public List<Proyecto> getSkills(){
+        return proServ.getAllProyectos();
+    }
+
+    @DeleteMapping("borrar/proyecto/{id}")
+    public void deleteProyecto(@PathVariable Integer id){
+        proServ.deleteProyecto(id);
+    }
+}
+
+
+
+

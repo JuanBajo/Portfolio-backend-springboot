@@ -15,14 +15,26 @@ import lombok.Setter;
 @Table(name = "usuarios")
 
 public class Usuario {
+
+    public Usuario() {
+    }
+
+    public Usuario(int id, String pass, String email) {
+        this.id = id;
+        this.pass = pass;
+        this.email = email;
+    }
+    
+     
+    
+    
+    
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "user")
-    private String nombreUsuario;
-    
+  
     
     @Column(name = "pass")
     private String pass;
@@ -30,13 +42,6 @@ public class Usuario {
     @Column(name = "email")
     private String email;   
     
-    
-   
-    @Column(name = "status")
-    private String status;
-        
-            @Column(name = "online")
-    private int userOnline;
      
 }
 

@@ -1,5 +1,6 @@
 package com.yoprogramo.portfoliopersonal.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,16 +13,36 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 @Table(name = "personas")
-public class Persona {
+public class Persona  {
+
+    public Persona(Integer id) {
+     this.id = id;
+    }
+    
+    public Persona(){}
+    
+    
+    
+    public Persona(Integer id, String nombre, String apellido, String email, String url_foto, String titulo, String about) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.url_foto = url_foto;
+        this.titulo = titulo;
+        this.about = about;
+    }
+    
     
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     
     @Column(name = "nombre")
     private String nombre;
-    
+
+ 
     @Column(name = "apellido")
     private String apellido;
     
@@ -36,7 +57,9 @@ public class Persona {
     
     @Column(name = "about")
     private String about;
+    
+    
+  
+
 }
-
-
 
