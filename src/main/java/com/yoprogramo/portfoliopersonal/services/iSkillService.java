@@ -1,6 +1,6 @@
 package com.yoprogramo.portfoliopersonal.services;
 
-import org.springframework.stereotype.Service;
+
 import com.yoprogramo.portfoliopersonal.model.Skill;
 import java.util.List;
 
