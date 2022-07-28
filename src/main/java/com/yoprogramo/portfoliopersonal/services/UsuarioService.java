@@ -4,14 +4,18 @@ import com.yoprogramo.portfoliopersonal.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yoprogramo.portfoliopersonal.model.Usuario;
-
-
+import java.util.Objects;
+import com.yoprogramo.portfoliopersonal.DTO.UsuarioDTO;
+import com.yoprogramo.portfoliopersonal.utils.JWTUtil;
 
 @Service
-public class UsuarioService implements iUsuarioService{
-    
+public class UsuarioService implements iUsuarioService {
+
     @Autowired
-    public UsuarioRepository usRepo;
+    private UsuarioRepository usRepo;
+
+    @Autowired
+    private JWTUtil jwt;
 
     @Override
     public void newUsuario(Usuario u) {
@@ -27,10 +31,45 @@ public class UsuarioService implements iUsuarioService{
     public void deleteUsuario(int id) {
         usRepo.deleteById(id);
     }
-    
 
-    
-    
-    
-    
+    @Override
+    public Usuario findByEmail(String email) {
+        return usRepo.findByEmail(email);
+    }
+
+    @Override
+    public UsuarioDTO validarUsuarioPass(Usuario usuario) {
+        UsuarioDTO usrRes = new UsuarioDTO();
+        Usuario usrBD = usRepo.findByEmail(usuario.getEmail());
+        if (usrBD == null) {
+            
+            usrRes.setEmail(usuario.getEmail());
+            usrRes.setToken(null);
+            usrRes.setStatus("El usuario " + usuario.getEmail() + " no existe");
+            
+            return usrRes;
+        } else {
+            if (Objects.equals(usrBD.getPass(), usuario.getPass())) {
+                
+                usrRes.setEmail(usuario.getEmail());
+                usrRes.setToken(getJWTToken(usrBD));
+                usrRes.setStatus("El usuario " + usuario.getEmail() + " ha sido logueado correctamente");
+                
+                return usrRes;
+            } else {
+                    usrRes.setEmail(usuario.getEmail());
+                    usrRes.setToken(null);
+                    usrRes.setStatus("La clave es incorrecta");
+                
+                return usrRes;
+            }
+        }
+    }
+
+    @Override
+    public String getJWTToken(Usuario usuario) {
+        return jwt.create(String.valueOf(usuario.getId()), usuario.getEmail());
+
+    }
+
 }

@@ -30,34 +30,31 @@ public class Educacion {
         this.institucion = institucion;
         this.carrera = carrera;
         this.descripcion = descripcion;
-        this.fecha_egreso = fecha_egreso;
+        this.fechaEgreso = fecha_egreso;
         this.persona_id = persona_id;
     }
-    
-     
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column( name = "id" )
+    @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "institucion")
     private String institucion;
-    
+
     @Column(name = "carrera")
     private String carrera;
-    
+
     @Column(name = "descripcion")
     private String descripcion;
-    
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "fecha_egreso")
-    private Date fecha_egreso;
-    
+    private Date fechaEgreso;
+
     @ManyToOne
     @JoinColumn(name = "PERSONAS_id")
     private Persona persona_id;
-   
-    
+
 }

@@ -1,4 +1,3 @@
-
 package com.yoprogramo.portfoliopersonal.services;
 
 import com.yoprogramo.portfoliopersonal.model.Persona;
@@ -7,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonaService implements iPersonaService{
+public class PersonaService implements iPersonaService {
 
-    
     @Autowired
     public PersonaRepository persoRepo;
-    
-    
+
     @Override
     public void newPersona(Persona p) {
         persoRepo.save(p);
@@ -28,5 +25,15 @@ public class PersonaService implements iPersonaService{
     public void deletePersona(Integer id) {
         persoRepo.deleteById(id);
     }
-    
+
+    @Override
+    public Persona getPersonaActiva() {
+        return persoRepo.findByActivo(true);
+    }
+
+    @Override
+    public Integer getIdActivo() {
+        return getPersonaActiva().getId();
+
+    }
 }

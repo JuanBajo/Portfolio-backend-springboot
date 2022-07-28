@@ -1,4 +1,3 @@
-
 package com.yoprogramo.portfoliopersonal.services;
 
 import org.springframework.stereotype.Service;
@@ -7,9 +6,13 @@ import java.util.List;
 
 @Service
 public interface iProyectoService {
-    
+
     public void newProyecto(Proyecto p);
+
     public List<Proyecto> getAllProyectos();
+
     public void deleteProyecto(Integer id);
-    
+
+    public List<Proyecto> getProyectoPersona(Integer id);
+
 }

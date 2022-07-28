@@ -15,57 +15,53 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 @Getter
 @Setter
 
 @Entity
 @Table(name = "experiencias")
 public class Experiencia {
-    
+
     public Experiencia() {
     }
 
-    public Experiencia(Integer id, String empresa, String puesto, String ciudad, Date fechaInicio, Date fechaFin) {
+    public Experiencia(Integer id, String empresa, String puesto, String ciudad, Date fechaInicio, Date fechaFin, Persona persona_id) {
         this.id = id;
         this.empresa = empresa;
         this.puesto = puesto;
         this.ciudad = ciudad;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        
+        this.persona_id = persona_id;
+
     }
-    
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "empresa")
     private String empresa;
-    
+
     @Column(name = "puesto")
     private String puesto;
-    
+
     @Column(name = "ciudad")
     private String ciudad;
-    
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "fecha_inicio")
     private Date fechaInicio;
-    
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "fecha_fin")
     private Date fechaFin;
-    
-  
+
     @ManyToOne
     @JoinColumn(name = "PERSONAS_id")
     public Persona persona_id;
 
-
-   
 }

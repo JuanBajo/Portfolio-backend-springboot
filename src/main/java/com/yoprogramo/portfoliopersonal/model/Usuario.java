@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
-@Getter @Setter
+@Getter
+@Setter
 @Entity
 @Table(name = "usuarios")
 
@@ -24,26 +24,16 @@ public class Usuario {
         this.pass = pass;
         this.email = email;
     }
-    
-     
-    
-    
-    
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
-  
-    
+
     @Column(name = "pass")
     private String pass;
-    
+
     @Column(name = "email")
-    private String email;   
-    
-     
+    private String email;
+
 }
-
-
-

@@ -11,42 +11,36 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
-@Getter @Setter
+@Getter
+@Setter
 @Entity
-@Table (name = "skills")
+@Table(name = "skills")
 
 public class Skill {
 
     public Skill(Integer id, String skill, Integer valoracion, Persona persona_id) {
         this.id = id;
         this.skill = skill;
-        this.valoracion = valoracion;
+        this.valor = valoracion;
         this.persona_id = persona_id;
     }
 
     public Skill() {
     }
-    
-    
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-        
-    
+
     @Column(name = "skill")
     private String skill;
-    
+
     @Column(name = "valoracion")
-    private Integer valoracion;
-    
+    private Integer valor;
+
     @ManyToOne
     @JoinColumn(name = "PERSONAS_id")
     private Persona persona_id;
 
-
-    
-    
 }

@@ -1,18 +1,19 @@
 package com.yoprogramo.portfoliopersonal.services;
 
 import com.yoprogramo.portfoliopersonal.model.Experiencia;
+
 import com.yoprogramo.portfoliopersonal.repository.ExperienciaRepository;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
-public class ExperienciaService implements iExperienciaService{
-    
+public class ExperienciaService implements iExperienciaService {
+
     @Autowired
     public ExperienciaRepository expRepo;
-    
+
     @Override
     public void newExpericencia(Experiencia exp) {
         expRepo.save(exp);
@@ -27,5 +28,11 @@ public class ExperienciaService implements iExperienciaService{
     public void deleteExperiencia(Integer id) {
         expRepo.deleteById(id);
     }
-    
+
+    @Override
+    public List<Experiencia> getExperienciaPersona(Integer persona_id) {
+
+        return expRepo.getExperienciaXPersona_Id(persona_id);
+    }
+
 }

@@ -7,24 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EducacionService implements iEducacionService{
+public class EducacionService implements iEducacionService {
 
-    
     @Autowired
     public EducacionRepository eduRepo;
-    
+
     @Override
     public void newEducacion(Educacion edu) {
-      eduRepo.save(edu);
+        eduRepo.save(edu);
     }
+
     @Override
     public List<Educacion> getAllEducacion() {
-       return eduRepo.findAll();
+        return eduRepo.findAll();
     }
 
     @Override
     public void deleteEducacion(Integer id) {
         eduRepo.deleteById(id);
     }
-    
+
+    @Override
+    public List<Educacion> getEducacionPersona(Integer id) {
+        return eduRepo.getEducacionPersona(id);
+    }
+
 }
