@@ -46,7 +46,7 @@ public class UsuarioService implements iUsuarioService {
             usrRes.setEmail(usuario.getEmail());
             usrRes.setToken(null);
             usrRes.setStatus("El usuario " + usuario.getEmail() + " no existe");
-            
+            usrRes.setCodStatus(-1);
             return usrRes;
         } else {
             if (Objects.equals(usrBD.getPass(), usuario.getPass())) {
@@ -54,13 +54,13 @@ public class UsuarioService implements iUsuarioService {
                 usrRes.setEmail(usuario.getEmail());
                 usrRes.setToken(getJWTToken(usrBD));
                 usrRes.setStatus("El usuario " + usuario.getEmail() + " ha sido logueado correctamente");
-                
+                usrRes.setCodStatus(1);
                 return usrRes;
             } else {
                     usrRes.setEmail(usuario.getEmail());
                     usrRes.setToken(null);
                     usrRes.setStatus("La clave es incorrecta");
-                
+                    usrRes.setCodStatus(-1);
                 return usrRes;
             }
         }

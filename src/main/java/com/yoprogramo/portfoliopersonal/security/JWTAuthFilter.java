@@ -36,13 +36,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 
         String token = request.getHeader("Authorization");
         if (token != null){
-            System.out.println("*********** filtro de auth: *******\n" + token);
-
             String user = jwt.getValue(token);
-
-            System.out.println(user);
-            System.out.println("si paso verifcacion token");
-            System.out.println(request.getMethod());
             List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN");
             UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(user, null, grantedAuthorities);
             SecurityContextHolder.getContext().setAuthentication(auth);

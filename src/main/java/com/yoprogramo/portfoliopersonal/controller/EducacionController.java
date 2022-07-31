@@ -24,7 +24,6 @@ public class EducacionController {
     
     @PostMapping("/crear/educacion")
     public void newEducacion(@RequestBody Educacion edu) {
-        System.out.println("crear educacion");
         eduServ.newEducacion(edu);
     }
 
