@@ -23,12 +23,12 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(Integer id, String nombre, String apellido, String email, String url_foto, String titulo, String about, boolean activo) {
+    public Persona(Integer id, String nombre, String apellido, String email, String foto, String titulo, String about, boolean activo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.url_foto = url_foto;
+        this.foto = foto;
         this.titulo = titulo;
         this.about = about;
         this.activo = activo;
@@ -48,8 +48,8 @@ public class Persona {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "url_foto")
-    private String url_foto;
+    @Column(name = "foto")
+    private String foto;
 
     @Column(name = "titulo")
     private String titulo;
