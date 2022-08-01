@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @PreAuthorize("isAuthenticated()")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-personal-yoprogramo.web.app/")
 @RestController
 public class PersonaController {
 

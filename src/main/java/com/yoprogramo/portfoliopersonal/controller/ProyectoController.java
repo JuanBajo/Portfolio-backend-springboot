@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @PreAuthorize("isAuthenticated()")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-personal-yoprogramo.web.app/")
 @RestController
 public class ProyectoController {
 
