@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EducacionRepository extends JpaRepository<Educacion, Integer> {
 
-    @Query(value = "SELECT * FROM Educacion WHERE PERSONAS_id=:id", nativeQuery = true)
+    @Query(value = "SELECT * FROM educacion WHERE PERSONAS_id=:id", nativeQuery = true)
     public List<Educacion> getEducacionPersona(@Param("id") Integer id);
 
 }

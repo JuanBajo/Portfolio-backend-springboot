@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface ProyectoRepository extends JpaRepository<Proyecto, Integer> {
 
-    @Query(value = "SELECT * FROM Proyectos WHERE PERSONAS_id=:id", nativeQuery = true)
+    @Query(value = "SELECT * FROM proyectos WHERE PERSONAS_id=:id", nativeQuery = true)
     public List<Proyecto> getProyectoPersona(@Param("id") Integer id);
 
 }
