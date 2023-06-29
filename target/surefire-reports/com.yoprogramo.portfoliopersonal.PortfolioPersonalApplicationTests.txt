@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.yoprogramo.portfoliopersonal.PortfolioPersonalApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 105.796 s - in com.yoprogramo.portfoliopersonal.PortfolioPersonalApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 101.879 s - in com.yoprogramo.portfoliopersonal.PortfolioPersonalApplicationTests
